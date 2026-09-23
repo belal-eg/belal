@@ -11,17 +11,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-	  html {
-		background-image: url('img.jpg');
-		background-position: center;
-		background-size: cover;
-		background-attachment: fixed;
-		background-repeat: no-repeat;
+	/* تثبيت الصفحة ومنع الـ Scroll */
+	html, body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
 		background-color: #24272b;
 		color: white;
 		text-align: center;
-		overflow: hidden;
+		font-family: sans-serif;
 	}
+
+	/* خلفية الصورة بثبات تام على أي شاشة وبلايستيشن */
+	.bg-image {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		object-fit: cover;
+		z-index: -1; /* عشان تفضل وراء كل العناصر */
+	}
+
+	/* محتوى الصفحة عشان يظهر فوق الصورة بوضوح */
+	.content {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 20px;
+	}
+
 	h1 {
 		text-shadow: 0.1em 0.1em 0.2em black;
 		font-size: 25px;
@@ -79,11 +102,15 @@
 </head>
 <body>
 
-<h1>PS4 7.00 - 13.00 FW GoldHEN Host by محمود أبو بلال</h1>
-<hr>
-<br>
-<!-- Исправлено: добавлены кавычки для id -->
-<h1 id="msgs" style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">Loading GoldHEN v2.4b18.10... Please Wait</h1>
+<!-- الصورة الخلفية مستقلة عشان تظبط مقاساتها على البلايستيشن بدقة -->
+<img src="img.jpg" class="bg-image" alt="Background">
+
+<div class="content">
+	<h1>PS4 7.00 - 13.00 FW GoldHEN Host by محمود أبو بلال</h1>
+	<hr>
+	<br>
+	<h1 id="msgs" style="font-size: 30px;margin-top: 77px;margin-bottom: 455px;">Loading GoldHEN v2.4b18.10... Please Wait</h1>
+</div>
 
 <script>
 	// Принудительно регистрируем элемент в глобальной области видимости window
